@@ -1,10 +1,29 @@
 fx_version 'cerulean'
 game 'gta5'
 
-description 'cartel_raid resource'
+author 'Deandre Lindsey'
+description 'PvE Cartel Raid System with Assassins, Helicopter Chases, Cooldowns'
 version '1.0.0'
 
-shared_script 'config.lua'
-shared_script 'locales/en.lua'
-client_script 'client/main.lua'
-server_script 'server/main.lua'
+lua54 'yes'
+
+shared_scripts {
+    '@ox_lib/init.lua',
+    'config.lua'
+}
+
+client_scripts {
+    'client/*.lua'
+}
+
+server_scripts {
+    '@oxmysql/lib/MySQL.lua',
+    'server/*.lua'
+}
+
+files {
+    'locales/*.json',
+    'html/*'
+}
+
+ui_page 'html/index.html'
